@@ -1,0 +1,41 @@
+<div class="logos">
+<h2>Логотипы</h2>
+  <ul id="logo-list">
+    <% Work.logo.each do |logo| %>
+        <li id="item_<%= logo.id %>"><%= logo.name %></li>
+    <% end %>
+  </ul>
+  <%= sortable_element "logo-list",
+        :url => {:controller => "works", :action => "sort_items", :method => "logo"},
+        :complete => visual_effect(:highlight, "logo-list")
+  %>
+
+</div>
+
+<div class="print">
+<h2>Полиграфия</h2>
+  <ul id="print-list">
+    <% Work.print.each do |logo| %>
+        <li id="item_<%= logo.id %>"><%= logo.name %></li>
+    <% end %>
+  </ul>
+  <%= sortable_element "print-list",
+        :url => {:controller => "works", :action => "sort_items", :method => "print"},
+        :complete => visual_effect(:highlight, "print-list")
+  %>
+
+</div>
+
+<div class="web">
+<h2>Веб страницы</h2>
+  <ul id="web-list">
+    <% Work.web.each do |logo| %>
+        <li id="item_<%= logo.id %>"><%= logo.name %></li>
+    <% end %>
+  </ul>
+  <%= sortable_element "web-list",
+        :url => {:controller => "works", :action => "sort_items", :method => "web"},
+        :complete => visual_effect(:highlight, "web-list")
+  %>
+
+</div>

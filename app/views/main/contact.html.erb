@@ -1,0 +1,56 @@
+<h1>Контактна інформація</h1>
+<table class="contact">
+  <tr>
+      <td class="even">
+        моб.:
+      </td>
+      <td>
+        <h2>+38 (050) 417-07-28</h2>
+      </td>
+    </tr>
+    <tr>
+      <td class="even">
+        факс.:
+      </td>
+      <td>
+        +38 (032) 232-41-51<br/>&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td class="even">
+        mail:
+      </td>
+      <td>
+        voronin.nick@gmail.com <span>- фінансові та арт питання</span><br/>
+        office@voroninstudio.eu <span>- вакансії, офіс</span><br/>
+        support@voroninstudio.eu <span>- питання технічної підтримки</span>
+      </td>
+    </tr>
+</table>
+<h3 class="contact">Форма зворотнього зв'язку</h3>
+<%= flash[:notice] %>
+<% form_tag "/contact" do -%>
+  <div class="left clear">
+  <div>
+  <img src="/images/form-input.png" title="name" alt="name" class="iePNG"/>
+  <input type="text" name="name">
+  <label>Ім'я</label>
+  </div>
+  <div>
+  <img src="/images/form-input.png" title="name" alt="name" class="iePNG"/>
+  <input type="text" name="tel">
+  <label>Контактний телефон</label>
+  </div>
+  <div>
+  <img src="/images/form-input.png" title="name" alt="name" class="iePNG"/>
+  <input type="text" name="email">
+  <label>e-mail <em>*</em></label>
+  </div>
+  </div>
+  <div class="right clear">
+  <img src="/images/form-text.png" title="name" alt="name" class="iePNG"/>
+  <textarea class="textarea" cols="0" rows="0" name="text"></textarea>
+  <label>текст запитання / пропозиції <em>*</em></label>
+  <%= submit_tag 'Відправити', :disable_with => "Зачекайте...", :class=>"button" %>
+  </div>
+<% end -%>

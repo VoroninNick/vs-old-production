@@ -1,0 +1,34 @@
+<h1>Карта сайту</h1>
+
+<ul class="sitemap">
+  <li><%= link_to "Про студію", about_path %></li>
+  <li><%= link_to "Наші послуги", services_path %></li>
+  <li><%= link_to "Портфоліо", portfolio_path %>
+    <ul>
+      <li><%= link_to "Фірмові стилі", logo_path %>
+        <ul>
+        <% @logo_tags.each do |tag| %>
+          <li><%= link_to tag, tagged_path("logo", tag) %></li>
+        <% end %>
+        </ul>
+      </li>
+      <li><%= link_to "Поліграфія", print_path %>
+        <ul>
+        <% @print_tags.each do |tag| %>
+          <li><%= link_to tag, tagged_path("print", tag) %></li>
+        <% end %>
+        </ul>
+      </li>
+      <li><%= link_to "Веб", web_path %>
+        <ul>
+        <% @print_tags.each do |tag| %>
+          <li><%= link_to tag, tagged_path("print", tag) %></li>
+        <% end %>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><%= link_to "Корисні статті", articles_path %></li>
+  <li><%= link_to "Вакансії", vacansies_path %></li>
+  <li><%= link_to "Контактна інформація", contact_path %></li>
+</ul>

@@ -1,0 +1,13 @@
+<h1 class="top"><%= @vacansy.name %></h1>
+<div class="left clearer">
+<%= render :partial=>"partials/item", :object => @vacansy %>
+</div>
+<div class="right" style="height: auto;">
+<%= @vacansy.text %>
+<span class="tags">
+Теги:
+  <% @vacansy.vactags.each do |tag| %>
+  <%= link_to tag.name, vactagged_url(tag.name), :rel => "tag" %><%= "," unless tag == @vacansy.vactags.last %>
+  <% end %>
+</span>
+</div>

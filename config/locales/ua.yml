@@ -1,0 +1,70 @@
+ua:
+  support:
+    array:
+      words_connector: ", "
+      last_word_connector: " или "        
+  activerecord:
+    errors:
+      template:
+        body: "Следующие ошибки были найдены:"
+        header:
+          one: "При cохранении произошла 1 ошибка"
+          other: "При cохранении еденицы допущено {{count}} ошибок"
+    models:
+      work: "Работы"
+    attributes:
+      typus_user:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        role: "Роль"
+        email: "Электронная почта"
+        password: "Пароль"
+        password_confirmation: "Подтверджение пароля"
+        status: "Статус"
+        language: "Язык"
+      work:
+        publish: "Публиковано"
+        featured: "Отличные работы"
+        name: "Имя"
+        chapter: "Раздел"
+        customer: "Заказчик"
+        brief: "Краткое описание"
+        artdirector: "Арт-директор"
+        art_and_designer: "Арт-директор и дизайнер"
+        photographer: "Фотограф"
+        seo: "SEO-оптимизатор"
+        thanks: "Выражаем благодарности"
+        leaddesigner: "Главный дизайнер"
+        designer: "Дизайнер"
+        leadprogrammer: "Главный програмист"
+        programmer: "Програмист"
+        copywrighter: "Копирайтер"
+        manager: "Менеджер"
+        task: "Задание"
+        solution: "Решение"
+        url: "URL-адрес заказчика"
+        created: "Дата работы"
+        thumb_file_name: "Изображение"
+        category: "Категория"
+      article:
+        publish: "Публиковано"
+        name: "Имя"
+        brief: "Краткое опичание"
+        text: "Описание"
+      frase:
+        name: "Имя"
+        author: "Автор"
+        description: "Описание"
+      vacansy:
+        publish: "Публиковано"
+        name: "Имя"
+        brief: "Краткое описание"
+        text: "Описание"
+  date:
+    formats:
+      main: "%B %Y"
+    day_names: [неділя, понеділок, вівторок, середа, четвер, "п'ятниця", субота]
+    abbr_day_names: [нд., пн., вт., ср., чт., пт., сб.]
+    month_names: [~, Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень]
+    abbr_month_names: [~, січ., лют., бер., квіт., трав., черв., лип., серп., вер., жовт., лист., груд.]
+    order: [ :day, :month, :year ]

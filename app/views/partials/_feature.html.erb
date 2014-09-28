@@ -1,0 +1,50 @@
+<table>
+  <tr>
+      <td class="even">
+        Дата:
+      </td>
+      <td>
+        <%= feature.created.nil? ? "Не вказано" :  l(feature.created, :format => :main) %>
+      </td>
+    </tr>
+  <tr>
+      <td class="even">
+        Розділ:
+      </td>
+      <td>
+        <%= feature.chapter %>
+      </td>
+    </tr>
+    <tr>
+      <td class="even">
+        Замовник:
+      </td>
+      <td>
+        <%= feature.customer %>
+      </td>
+    </tr>
+    <% unless feature.url.empty? %>
+      <tr>
+      <td class="even">
+        Веб:
+      </td>
+      <td>
+        <%= link_to feature.url.gsub("http://www.", "").gsub("/", ""), feature.url %>
+      </td>
+      </tr>
+      <% end %>
+    <tr>
+      <td class="even">
+        Короткий опис:
+      </td>
+    </tr>
+</table>
+<p class="short">
+  <%= feature.brief %>
+</p>
+<p class="category">
+  Категорія:
+  <% feature.tags.each do |tag| %>
+  <%= link_to tag.name, tagged_url(feature.category, tag.name), :rel => "tag" %><%= "," unless tag == feature.tags.last %>
+  <% end %>
+</p>

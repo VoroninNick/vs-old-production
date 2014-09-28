@@ -1,0 +1,28 @@
+<li><label><%= t(attribute.humanize) %></label>
+  <%= text_field :item, attribute, :class=>"text", :id => "item_tag_list" %>
+</li>
+<div id="cloud" style="display: none;">
+<% Tag.find(:all).each do |t| %>
+<a href="javascript:" onclick="add_tag('<%= t.name %>');" style="margin-right:5px;float:left;"><%= t.name %></a>
+<% end %>
+</div>
+<script type="text/javascript">
+  new Tip("item_tag_list", $('cloud'), { closeButton: true, showOn: 'click', hideOn: 'click', fixed: true, title: 'Тегова ХМАРА:', hook: { tip: 'mouse', target: 'mouse' }, stem: 'topLeft', offset: {x:0, y:5} });
+  function add_tag(str) {
+    if ($("item_tag_list").value.include(str)) {
+      return true;
+    }
+    else
+    {
+       if ($("item_tag_list").value == ''){
+       $("item_tag_list").value = $("item_tag_list").value + str
+       }
+       else
+       {
+       $("item_tag_list").value = $("item_tag_list").value + ", " + str
+       }
+    }
+  }
+</script>
+
+

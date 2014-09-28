@@ -1,0 +1,8 @@
+admin:
+  Work: create, read, update, delete, sort, sort_items
+  About: create, read, update, delete
+  Article: create, read, update, delete
+  Vacansy: create, read, update, delete
+  Frase: create, read, update, delete
+  Subscriber: create, read, update, delete, send_letter
+  

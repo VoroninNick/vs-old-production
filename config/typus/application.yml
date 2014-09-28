@@ -1,0 +1,108 @@
+# Typus Models Configuration File
+#
+# Use the README file on the same folder as this file as a reference to
+# customize this file to your needs.
+
+Work:
+  fields:
+    list: publish, featured, name, chapter, customer, thumb_file_name
+    form: publish, featured, category, name, chapter, customer, brief, artdirector, art_and_designer, leaddesigner, designer, leadprogrammer, programmer, copywrighter, photographer, manager, seo, thanks, task, solution, url, thumb_file_name, created, tag_list
+    show: publish, name, chapter, customer, brief, artdirector, leaddesigner, designer, leadprogrammer, programmer, copywrighter, manager, task, solution, url, created, thumb_file_name
+    options:
+      tiny_mce:
+        fields: solution
+      templates:
+        tag_list: tag_cloud
+        category: category
+        created: created
+  order_by: -created_at
+  search: name, chapter, customer, brief, artdirector, leaddesigner, designer, leadprogrammer, programmer, copywrighter, manager, task, solution, url, category
+  application: Основной раздел
+  description: Работы
+  options:
+    per_page: 30
+
+About:
+  fields:
+    list: about
+    form: about
+    show: about
+    options:
+      tiny_mce:
+        fields: about
+  actions:
+    index:
+    edit:
+  order_by: -created_at
+  relationships:
+  filters:
+  application: Основной раздел
+  description: Про нас
+  options:
+    per_page: 30
+
+Frase:
+  fields:
+    list: name, author
+    form: name, description, author
+  application: Фразы
+  description: Фразы и выражения
+
+Article:
+  fields:
+    list: publish, name, thumb_file_name, created_at
+    form: publish, name, brief, text, thumb_file_name, artag_list
+    show: publish, name, thumb_file_name, created_at
+    options:
+      tiny_mce:
+        fields: text
+      templates:
+        artag_list: tag_cloud
+  actions:
+    index:
+    edit:
+  order_by: -created_at
+  relationships:
+  filters:
+  search: name, brief, text
+  application: Основной раздел
+  description: Статьи
+  options:
+    per_page: 30
+
+Vacansy:
+  fields:
+    list: publish, name, thumb_file_name, created_at
+    form: publish, name, brief, text, thumb_file_name, vactag_list
+    show: publish, name, thumb_file_name, created_at
+    options:
+      tiny_mce:
+        fields: text
+      templates:
+        vactag_list: tag_cloud
+  actions:
+    index:
+    edit:
+  order_by: -created_at
+  relationships:
+  filters:
+  search: name, brief, text
+  application: Основной раздел
+  description: Вакансии
+  options:
+    per_page: 30
+
+
+Subscriber:
+  fields:
+    list: email
+    form: email
+  actions:
+    index: send_letter
+    edit:
+  order_by: -created_at
+  relationships:
+  filters:
+  search: email
+  application: E-mail маркетинг
+  description: Адреса

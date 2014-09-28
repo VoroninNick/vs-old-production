@@ -1,0 +1,7 @@
+<div class="same_items">
+<% same_items.each do |r| %>
+<div class="item <%= cycle("", "last") %> iePNG">
+    <%= render :partial => "partials/item_link", :object => r %>
+</div>
+<% end %>
+</div>

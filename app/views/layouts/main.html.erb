@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="ua" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta NAME="keywords" CONTENT="<%= @keywords || "веб, розробка, створення, дизайн, поліграфія, дизайн студія, Львів, веб-дизайн, веб-сайт, веб сторінки, web сторінки, фірмовий стиль, логотипи, бренд-бук, флаєр, листівка, візитка, вітрина, друк" %>"/>
+<meta NAME="description" CONTENT="<%= @description || "Дизайн студія Миколи Вороніна. Займається розробкою презентаційних і корпоративних веб-сайтів, Інтернет магазинів, SEO, а також створенням якісного графічного дизайну: логотипів, фірмового стилю, буклетів, афіш, реклами, зовнішньої реклами, Інтернет реклами, та веб-банерів." %>"/>
+<meta name="google-site-verification" content="SU_33cH_DOAcmmeWs6hml5H2BNrHMTgH3ztgneedEoQ" />
+<meta name='yandex-verification' content='55f1fdf0f4c8a5a2' />
+<link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico"/>
+<link href="/favicon.ico" type="image/vnd.microsoft.icon" rel="apple-touch-icon"/>
+
+        <title><%= @title || "Дизайн студія Миколи Вороніна (Львів). Графічний дизайн. Створення веб-сайтів. Поліграфія." %></title>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/styles.css" media="screen"/>
+        <!--[if lt IE 7]>
+            <link rel="stylesheet" type="text/css" href="/stylesheets/iefix.css" media="screen" />
+            <script type="text/javascript" src="/javascripts/fixpng.js"></script>
+        <![endif]-->
+        <%= javascript_include_tag "protoaculous.1.8.2.min", "carousel", "analytics" %>
+</head>
+  <body>
+    <div id="wrapper">
+        <div class="header">
+          <div class="iePNG">
+            <% unless current_page?(:controller => "main", :action => "index") %>
+            <a href="http://voroninstudio.eu" title="На головну"><img src="/images/logo.png" class="logo iePNG" alt="Дизайн студія Миколи Вороніна" title="На головну"/></a>
+            <% else %>
+            <img src="/images/logo.png" class="logo iePNG" alt="Дизайн студія Миколи Вороніна" title="на головну"/>
+            <% end %>
+            <span><%#= frase %> <a href="http://voroninstudio.eu/articles/behance-portfolio-review-lviv-2"><img src="/host-medium.png" alt="" /></a></span>
+          </div>
+        </div>
+
+        <div class="nav">
+          <ul>
+            <li><%= link_to "Хто", about_path, :class=>"#@is_about iePNG" %><span>Про студію</span></li>
+            <li><%= link_to "Що", services_path, :class=>"#@is_services iePNG" %><span>Наші послуги</span></li>
+            <li><%= link_to "Як", portfolio_path, :class=>"#@is_portfolio iePNG" %><span>Портфоліо</span></li>
+            <li><%= link_to "Коли", articles_path, :class=>"#@is_articles iePNG" %><span>Анонси та події</span></li>
+            <li><%= link_to "Кого", vacansies_path, :class=>"#@is_vacansies iePNG" %><span>Наші вакансії</span></li>
+            <li><%= link_to "Де", contact_path, :class=>"#@is_contact iePNG" %><span>Контактна інформація</span>
+            <%= image_tag("/images/link-border.jpg", :alt=>"") %>
+            </li>
+          </ul>
+        </div>
+        <% unless current_page?(:controller => "main", :action => "index") %>
+          <div class="crums">
+            <span><%= render_crumbs :seperator => ' / ' %></span>
+          </div>
+        <% end %>
+        <div class="container">
+          
+            <div class="content clear">
+                <%= yield:layout %>
+            </div>
+          
+        <div class="clearfooter">&nbsp;</div>
+        </div>
+    
+    <div class="glow iePNG">&nbsp;</div>
+    <div class="footer">
+      <div class="news">
+        <div class="column">
+        <h2>Анонси та події</h2>
+        <ul class="articles">
+        <% Article.find(:all, :conditions => "publish", :order => "created_at DESC").first(4).each do |a| %>
+        <li><p><%= link_to truncate(a.name, 100), a, :class=>"foot" %>&nbsp;<%= link_to ">>", a %></p></li>
+        <% end %>
+        <li><%= link_to "Більше порад", articles_path, :class=>"detail" %></li>
+        </ul>
+        </div>
+        <div class="column">
+        <h2>Наші послуги</h2>
+        <ul>
+        <li><p>Ми професіонали в області графічного та веб дизайну, створенні презентаційних, корпоративних сайтів та порталів. А <%= link_to "нашою ціллю", about_path(:anchor=>"aim") %> є створення повноцінного якісного дизайнерского продукту, який допоможе підприємству в отриманні прибутків та процвітанні.</p></li>
+        </ul>
+        </div>
+        <div class="column">
+        <h2>Співпраця</h2>
+        <ul>
+        <li>
+        <p>Запрошуємо друкарні, рекламні агентства та інші компанії для взаємовигідної співпраці у Львові та інших містах.</p>
+        <p>A креативних, творчих людей шукаючих хорошу роботу запрошуємо в розділ <%= link_to "вакансій", vacansies_path %>.</p>
+        </li>
+        </ul>
+        </div>
+        <div class="column last">
+        <h2>Контакти</h2>
+        <ul>
+        <li>
+          <p>В разі виникнення питань щодо замовлення послуг дизайн студії просимо терміново телефонувати, писати листи або заповнити <%= link_to "форму", contact_path %>.</p>
+          <p>Ми з радістью відповімо на усі Ваші запитання.</p>
+          <p>тел.: +38 (050) 417-07-28</p>
+          
+        </li>
+        </ul>
+        </div>
+      </div>
+      <hr class="underline clearer" />
+      <div class="footer-last">
+        <%= link_to "Головна", home_path %>&nbsp;|&nbsp;
+        <%= link_to "Про студію", about_path %>&nbsp;|&nbsp;
+        <%= link_to "Послуги", services_path %>&nbsp;|&nbsp;
+        <%= link_to "Портфоліо", portfolio_path -%>&nbsp;|&nbsp;
+        <%= link_to "Статті", articles_path %>&nbsp;|&nbsp;
+        <%= link_to "Карта сайту", sitemap_path %>&nbsp;|&nbsp;
+        <%= link_to "Контакти", contact_path -%>
+        <span class="copyright clear">&copy; 2009 &mdash; 2012 <%= link_to "Дизайн Студія Миколи Вороніна", "http://voroninstudio.eu" %>. Всі права застережено.</span>
+      </div>
+    </div>
+    </div>
+    </body></html>
+

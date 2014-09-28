@@ -1,0 +1,17 @@
+<h1>Корисні статті</h1>
+<% @articles.each do |a| %>
+<div class="left clearer">
+<%= render :partial=>"partials/item_link", :object => a %>
+</div>
+<div class="right" style="margin-bottom: 30px;height: 173px;">
+<h2><%= link_to a.name, a, :class=>"heading" %></h2>
+<p><%= truncate(a.brief, 400) %></p>
+<span class="tags">
+Теги:
+  <% a.artags.each do |tag| %>
+  <%= link_to tag.name, artagged_url(tag.name), :rel => "tag" %><%= "," unless tag == a.artags.last %>
+  <% end %>
+</span>
+<%= link_to "Читати далі", a, :class=>"detail", :style=>"position:absolute;bottom:0;right:0;" %>
+</div>
+<% end %>

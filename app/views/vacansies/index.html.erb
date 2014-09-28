@@ -1,0 +1,19 @@
+<h1 class="top">Розшукуються креативні люди</h1>
+<p>Шановні користувачі, спеціалісти, професіонали своєї справи, якщо ви не побачили вакансії по своїй кваліфікації всеодно пишіть нам, студії потрібні креативні люди! Пишіть і ми негайно вам відповімо.</p>
+<h1 class="top">Наші вакансії</h1>
+<% @vacansies.each do |a| %>
+<div class="left clearer">
+<%= render :partial=>"partials/item_link", :object => a %>
+</div>
+<div class="right" style="margin-bottom: 30px;height: 173px;">
+<h2><%= link_to a.name, a, :class=>"heading" %></h2>
+<%= truncate(a.brief, 400) %>
+<span class="tags">
+Теги:
+  <% a.vactags.each do |tag| %>
+  <%= link_to tag.name, vactagged_url(tag.name), :rel => "tag" %><%= "," unless tag == a.vactags.last %>
+  <% end %>
+</span>
+<%= link_to "Читати далі", a, :class=>"detail", :style=>"position:absolute;bottom:0;right:0;" %>
+</div>
+<% end %>

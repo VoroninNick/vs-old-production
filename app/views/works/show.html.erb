@@ -1,0 +1,92 @@
+<div class="top clear">
+<h1 class="work-name fleft item"><%= @work.name %></h1>
+<div class="next_prev">
+<%= link_to_previous %>
+
+<%= link_to_next %>
+</div>
+</div>
+<div class="left fright">
+<h2 class="nomargin">Коротка інформація</h2>
+<%= render :partial => "partials/feature", :object => @work %>
+<p>&nbsp;</p>
+<h2>У ролях</h2>
+<% unless @work.artdirector.blank? %>
+<p class="category">
+  Арт директор:
+</p>
+<span><%= @work.artdirector %></span>
+<% end %>
+<% unless @work.art_and_designer.blank? %>
+<p class="category">
+  Арт директор та дизайнер:
+</p>
+<span><%= @work.art_and_designer %></span>
+<% end %>
+<% if !@work.leaddesigner.empty? %>
+<p class="category">
+  Головний дизайнер:
+</p>
+<span><%= @work.leaddesigner %></span>
+<% end %>
+<% if !@work.designer.empty? %>
+<p class="category">
+  Дизайнер:
+</p>
+<span><%= @work.designer %></span>
+<% end %>
+<% if !@work.leadprogrammer.empty? %>
+<p class="category">
+  Головний програміст:
+</p>
+<span><%= @work.leadprogrammer %></span>
+<% end %>
+<% if !@work.programmer.empty? %>
+<p class="category">
+  Програміст:
+</p>
+<span><%= @work.programmer %></span>
+<% end %>
+<% if !@work.copywrighter.empty? %>
+<p class="category">
+  Копирайтер:
+</p>
+<span><%= @work.copywrighter %></span>
+<% end %>
+<% unless @work.photographer.blank? %>
+<p class="category">
+  Фотограф:
+</p>
+<span><%= @work.photographer %></span>
+<% end %>
+<% unless @work.seo.blank? %>
+<p class="category">
+  SEO-оптимізатор:
+</p>
+<span><%= @work.seo %></span>
+<% end %>
+<% if !@work.manager.empty? %>
+<p class="category">
+  Менеджер:
+</p>
+<span><%= @work.manager %></span>
+<% end %>
+<br /><br /><br />
+<% unless @work.thanks.blank? %>
+<h2>Висловлюємо подяку</h2>
+<span><%= @work.thanks %></span>
+<% end %>
+</div>
+<div class="right">
+  <span class="featured iePNG">&nbsp;</span>
+  <%= image_tag(@work.thumb.url, :class=>"project", :alt=>@work.name, :title=>@work.name) %>
+  <div class="clear">&nbsp;</div>
+  <p class="task"><i>Завдання.</i> <%= @work.task %></p>
+  <h2>Рішення</h2>
+  <p><%= @work.solution %></p>
+  <% if !@also.empty? %>
+  <%= render :partial=>"partials/same_items", :object => @also %>
+  <% end %>
+</div>
+
+

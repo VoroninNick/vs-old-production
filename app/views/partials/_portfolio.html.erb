@@ -1,0 +1,24 @@
+<div class="portfolio">
+<ul class="logotype">
+
+<li class="first"><%= link_to "<h1 class='works'>Фірмові стилі</h1>", logo_url %></li>
+<% Work.logo.first(3).each do |l| %>
+<li><%= render :partial => "partials/item_link", :object => l %></li>
+<% end %>
+<li class="more"><%= link_to "Більше", logo_url, :class=>"detail" %></li>
+</ul>
+<ul class="poly">
+<li class="first"><%= link_to "<h1 class='works'>Поліграфія</h1>", print_url %></li>
+<% Work.print.first(3).each do |p| %>
+<li><%= render :partial => "partials/item_link", :object => p %></li>
+<% end %>
+<li class="more"><%= link_to "Більше", print_url, :class=>"detail" %></li>
+</ul>
+<ul class="web last">
+<li class="first"><%= link_to "<h1 class='works'>Веб</h1>", web_url %></li>
+<% Work.web.first(3).each do |w| %>
+<li><%= render :partial => "partials/item_link", :object => w %></li>
+<% end %>
+<li class="more"><%= link_to "Більше", web_url, :class=>"detail" %></li>
+</ul>
+</div>

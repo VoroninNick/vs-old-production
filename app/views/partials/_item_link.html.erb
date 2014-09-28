@@ -1,0 +1,3 @@
+<%= link_to image_tag("/images/blank.gif", :style=>"width: 300px; height: 173px; border:none;", :class=> "iePNG", :title=>item_link.name, :alt=>item_link.name), item_link.respond_to?(:category) ? work_path(item_link.category, item_link) : item_link, :title=>item_link.name, :class=>"small-frame iePNG" %>
+<%= image_tag(item_link.thumb.url(:small), :alt=>item_link.name, :title=>item_link.name) %>
+

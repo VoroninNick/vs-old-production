@@ -1,0 +1,18 @@
+<%= javascript_include_tag "endless" %>
+
+<h1><%= @tag %></h1>
+<span class="subgroups">
+  <%= link_to_if controller.action_name == "tagged_with", "<h3>Всі</h3>", {:controller => "works", :action => @works.first.category} %>
+  <% @tags.each do |t| %>
+    <%= link_to_if params[:tag] != t, "<h3>#{t}</h3>", tagged_path(@works.first.category, t) %>
+  <% end %>
+</span>
+
+<div class="recent" id="portfolio_pagination">
+<%= render :partial=>"partials/items", :collection => @works, :locals => {:page => @page} %>
+</div>
+
+<div class="clearer">&nbsp</div>
+
+<div id="pagination"><%= will_paginate @works, :previous_label => "&laquo; Туди", :next_label => "Сюди &raquo;" %></div>
+<div id="loading" style="display: none">Завантажую більше робіт...</div>

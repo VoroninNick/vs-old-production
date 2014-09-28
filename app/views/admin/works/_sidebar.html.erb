@@ -1,0 +1,2 @@
+<h2 class="sort">Сортировка работ</h2>
+<%= link_to_remote "Открыть окно сортировки", :url => {:controller=>"works", :action => "sort"}, :update => "content", :html => {:class => "sorting-link"} %>

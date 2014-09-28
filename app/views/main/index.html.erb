@@ -1,0 +1,53 @@
+<div id="carousel-controls">
+<a href="javascript:" rel="prev" class="carousel-control arrow left-arrow"><img class="iePNG" src="/images/arrow-back.png" title="Попередня" alt="Попередня" /></a>
+<a href="javascript:" rel="next" class="carousel-control arrow right-arrow"><img class="iePNG" src="/images/arrow-forward.png" title="Наступна" alt="Наступна"/></a>
+<div id="carousel-wrapper">
+<div id="carousel-content">
+
+<!-- New year 2013 Card -->
+
+<div class="slide">
+	<div class="left">
+		<h1 class="work-name">
+			Вітаємо Вас з Новим Роком та Різдвом Христовим!
+		</h1>
+		<p class="short">Бажаємо Вам щастя та міцного здоров’я. Нехай прекрасні зимові свята принесуть Вам спокій і злагоду, впевненість у майбутньому. Бажаємо Вам творчих успіхів, родинного щастя, достатку і благополуччя, а також гарного настрою і любові. Нехай у Вашому житті панують гармонія та вдача!<br><br><i>З найкращими побажаннями, завжди Ваша дизайн студія М.Вороніна</i></p>
+	</div>
+
+	<div class="right">
+		<a href="#" class="featured iePNG" title="Вітаємо Вас з Новим Роком та Різдвом Христовим!">
+			<img alt="Вітаємо Вас з Новим Роком та Різдвом Христовим!" class="iePNG" src="/images/blank.gif?1353525369">
+		</a>
+		<img src="1.jpg" alt="Вітаємо Вас з Новим Роком та Різдвом Христовим!" class="project">
+	</div>
+</div>
+
+<!-- /New year 2013 Card -->
+
+<% Work.featured.first(3).each do |f| %>
+
+<div class="slide">
+<div class="left">
+<h1 class="work-name"><%= link_to f.name, work_path(f.category, f), :class => "heading" %></h1>
+<%= render :partial => "partials/feature", :object => f %>
+<%= link_to "Детальніше", work_path(f.category, f), :class => "detail" %>
+</div>
+<div class="right">
+  <%= link_to image_tag("/images/blank.gif", :class=>"iePNG", :alt => f.name), work_path(f.category, f), :class=>"featured iePNG", :title => f.name %>
+  <%= image_tag(f.thumb.url, :class=>"project", :alt=>f.name, :title=>f.name) %>
+</div>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+document.observe("dom:loaded", function() {
+new Carousel('carousel-wrapper', $$('#carousel-content .slide'), $$('a.carousel-control'));
+});
+</script>
+
+<div class="clearer">&nbsp;</div>
+<%= render :partial=>"partials/portfolio" %>
+
+
